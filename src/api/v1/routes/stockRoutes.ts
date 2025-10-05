@@ -1,12 +1,12 @@
 import { Router } from 'express';
-import { StockController } from '../controllers/StockController';
 import { validate } from '../../../middlewares/validation';
-import { 
-  updateStockSchema,
-  stockQuerySchema,
-  productIdSchema,
-  locationIdSchema,
-  reserveStockSchema
+import { StockController } from '../controllors/stockController';
+import {
+    locationIdSchema,
+    productIdSchema,
+    reserveStockSchema,
+    stockQuerySchema,
+    updateStockSchema
 } from '../validators/stockValidators';
 
 const router = Router();

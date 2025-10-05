@@ -1,12 +1,12 @@
 import { Router } from 'express';
-import { ProductController } from '../controllers/ProductController';
 import { validate } from '../../../middlewares/validation';
-import { 
-  createProductSchema, 
-  updateProductSchema, 
-  productIdSchema, 
-  productQuerySchema 
-} from '../validators/productValidators';
+import { ProductController } from '../controllors/productController';
+import {
+    createProductSchema,
+    productIdSchema,
+    productQuerySchema,
+    updateProductSchema
+} from '../validators/productValidator';
 
 const router = Router();
 
