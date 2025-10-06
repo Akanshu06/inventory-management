@@ -1,7 +1,7 @@
-import { Product, IProduct } from '../models/Product';
-import { Category } from '../models/Category';
-import { Stock } from '../models/Stock';
 import { ERROR_MESSAGES } from '../config/constants';
+import { Category } from '../models/Category';
+import { IProduct, Product } from '../models/Product';
+import { Stock } from '../models/Stock';
 import { calculatePagination, generateSKU } from '../utils/helpers';
 
 export class ProductService {
@@ -56,7 +56,7 @@ export class ProductService {
 
     const total = await Product.countDocuments(filter);
 
-    let productsWithStock = products;
+    let productsWithStock: any[] = products;
     
     if (includeStock) {
       productsWithStock = await Promise.all(
@@ -121,9 +121,9 @@ export class ProductService {
 
   static async updateProduct(id: string, updateData: Partial<IProduct>): Promise<IProduct> {
     if (updateData.sku) {
-      const existingProduct = await Product.findOne({ 
-        sku: updateData.sku, 
-        _id: { $ne: id } 
+      const existingProduct = await Product.findOne({
+        sku: updateData.sku,
+        _id: { $ne: id }
       });
       
       if (existingProduct) {

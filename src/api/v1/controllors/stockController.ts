@@ -5,7 +5,10 @@ import { formatResponse } from '../../../utils/helpers';
 export class StockController {
   static async updateStock(req: Request, res: Response) {
     try {
-      const { productId, locationId, quantity, operation } = req.body;
+      const { productId, locationId, quantity, type } = req.body;
+      
+      // Map type to operation
+      const operation = type === 'IN' ? 'add' : 'subtract';
       
       const stock = await StockService.updateStock(
         productId,

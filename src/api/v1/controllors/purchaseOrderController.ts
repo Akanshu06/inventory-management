@@ -1,4 +1,5 @@
 import { Request, Response } from 'express';
+import { PurchaseOrderStatus } from '../../../models/PurchaseOrder';
 import { PurchaseOrderService } from '../../../services/PurchaseOrderService';
 import { formatResponse } from '../../../utils/helpers';
 
@@ -24,7 +25,7 @@ export class PurchaseOrderController {
       const result = await PurchaseOrderService.getPurchaseOrders(
         parseInt(page as string) || 1,
         parseInt(limit as string) || 20,
-        status as string
+        status ? status as PurchaseOrderStatus : undefined
       );
 
       res.json(

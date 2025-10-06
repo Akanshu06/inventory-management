@@ -1,4 +1,5 @@
 import { Request, Response } from 'express';
+import { NotificationStatus, NotificationType } from '../../../models/Notification';
 import { NotificationService } from '../../../services/NotificationService';
 import { formatResponse } from '../../../utils/helpers';
 
@@ -10,8 +11,8 @@ export class NotificationController {
       const result = await NotificationService.getNotifications(
         parseInt(page as string) || 1,
         parseInt(limit as string) || 20,
-        type as string,
-        status as string
+        type as NotificationType,
+        status as NotificationStatus
       );
 
       res.json(

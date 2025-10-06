@@ -1,5 +1,3 @@
-import { APP_CONSTANTS } from '../config/constants';
-
 export const generateSKU = (name: string, categoryCode: string): string => {
   const timestamp = Date.now().toString().slice(-4);
   const nameCode = name
@@ -17,9 +15,9 @@ export const generatePONumber = (): string => {
   return `PO-${timestamp.slice(-8)}`;
 };
 
-export const calculatePagination = (page: number = 1, limit: number = APP_CONSTANTS.DEFAULT_PAGE_SIZE) => {
+export const calculatePagination = (page: number = 1, limit: number = 20) => {
   const pageNum = Math.max(1, parseInt(page.toString()));
-  const limitNum = Math.min(APP_CONSTANTS.MAX_PAGE_SIZE, Math.max(1, parseInt(limit.toString())));
+  const limitNum = Math.min(100, Math.max(1, parseInt(limit.toString())));
   const skip = (pageNum - 1) * limitNum;
 
   return { page: pageNum, limit: limitNum, skip };
