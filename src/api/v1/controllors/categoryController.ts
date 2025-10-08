@@ -23,6 +23,7 @@ export class CategoryController {
     }
   }
 
+
   static async getCategoryById(req: Request, res: Response) {
     try {
       const category = await Category.findById(req.params.id)
