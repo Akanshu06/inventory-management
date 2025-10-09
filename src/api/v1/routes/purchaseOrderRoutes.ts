@@ -22,7 +22,8 @@ const router = Router();
 
 router.post(
   '/',
-  PurchaseOrderController.createPurchaseOrder
+  validate(createPurchaseOrderSchema)
+  ,PurchaseOrderController.createPurchaseOrder
 );
 
 router.get(

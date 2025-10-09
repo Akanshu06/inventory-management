@@ -6,6 +6,7 @@ import { formatResponse } from '../../../utils/helpers';
 export class PurchaseOrderController {
   static async createPurchaseOrder(req: Request, res: Response) {
     try {
+      // console.log('i am here')
       const purchaseOrder = await PurchaseOrderService.createPurchaseOrder(req.body);
       
       res.status(201).json(
