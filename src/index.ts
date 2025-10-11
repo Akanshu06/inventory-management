@@ -10,7 +10,7 @@ dotenv.config();
 // Import configurations and routes
 import { v1Routes } from './api/v1/routes';
 import connectDB from './config/db';
-import { errorHandler } from './middleware/errorHandler';
+import { errorHandler } from './middleware/middleware.errorHandler';
 
 const app = express();
 const server = http.createServer(app);
