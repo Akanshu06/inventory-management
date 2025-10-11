@@ -76,7 +76,6 @@ const ProductSchema = new Schema({
 });
 
 // Index for better query performance
-ProductSchema.index({ sku: 1 });
 ProductSchema.index({ category: 1 });
 ProductSchema.index({ isActive: 1 });
 
