@@ -9,20 +9,20 @@ export interface EmailOptions {
 }
 
 export class EmailService {
- private transporter: nodemailer.Transporter;
+  private transporter: nodemailer.Transporter;
 
-constructor() {
-  // Email service configuration
-  this.transporter = nodemailer.createTransport({
-    host: 'smtp.example.com',
-    port: 587,
-    secure: false,
-    auth: {
-      user: 'your-email@example.com',
-      pass: 'your-password',
-    },
-  });
-}
+  constructor() {
+    // Email service configuration
+    this.transporter = nodemailer.createTransport({
+      host: 'smtp.example.com',
+      port: 587,
+      secure: false,
+      auth: {
+        user: 'your-email@example.com',
+        pass: 'your-password',
+      },
+    });
+  }
 
   async sendEmail(options: EmailOptions): Promise<boolean> {
     try {

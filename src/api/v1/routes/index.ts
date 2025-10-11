@@ -1,10 +1,10 @@
 import { Router } from 'express';
-import { categoryRoutes } from './categoryRoutes';
-import { locationRoutes } from './locationRoutes';
-import { notificationRoutes } from './notificationRoutes';
-import { productRoutes } from './ProductRoutes';
-import { purchaseOrderRoutes } from './purchaseOrderRoutes';
-import { stockRoutes } from './stockRoutes';
+import { categoryRoutes } from './categoryRoutes/category.routes';
+import { locationRoutes } from './locationRoutes/location.routes';
+import { notificationRoutes } from './notificationRoutes/notification.routes';
+import { productRoutes } from './productRoutes/product.routes';
+import { purchaseOrderRoutes } from './purchaseorderRoutes/purchaseOrder.routes';
+import { stockRoutes } from './stockRoutes/stock.routes';
 
 const router = Router();
 
