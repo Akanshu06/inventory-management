@@ -1,3 +1,6 @@
+
+import nodemailer from 'nodemailer';
+
 export interface EmailOptions {
   to: string | string[];
   subject: string;
@@ -6,16 +9,30 @@ export interface EmailOptions {
 }
 
 export class EmailService {
-  constructor() {
-    // Email service placeholder
-  }
+ private transporter: nodemailer.Transporter;
+
+constructor() {
+  // Email service configuration
+  this.transporter = nodemailer.createTransport({
+    host: 'smtp.example.com',
+    port: 587,
+    secure: false,
+    auth: {
+      user: 'your-email@example.com',
+      pass: 'your-password',
+    },
+  });
+}
 
   async sendEmail(options: EmailOptions): Promise<boolean> {
     try {
       // Placeholder - log email instead of sending
-      console.log('📧 Email would be sent:', {
+      const info = await this.transporter.sendMail({
+        from: 'your-email@example.com',
         to: options.to,
-        subject: options.subject
+        subject: options.subject,
+        html: options.html,
+        text: options.text,
       });
       return true;
     } catch (error) {
